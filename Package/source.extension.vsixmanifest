@@ -2,7 +2,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 	<Metadata>
 		<!-- Do not remove any or change the order of the following elements. It can/will cause a xml-schema-validating error. -->
-		<Identity Id="HansKindberg.VisualStudio.Templates.Package" Version="0.0.2" Language="en-US" Publisher="Hans Kindberg - open source" />
+		<Identity Id="HansKindberg.VisualStudio.Templates.Package" Version="0.0.1" Language="en-US" Publisher="Hans Kindberg - open source" />
 		<DisplayName>Hans Kindberg - Visual Studio templates</DisplayName>
 		<Description>Hans Kindberg - Visual Studio templates - package</Description>
 	</Metadata>
