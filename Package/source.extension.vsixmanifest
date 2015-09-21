@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+	<Metadata>
+		<!-- Do not remove any or change the order of the following elements. It can/will cause a xml-schema-validating error. -->
+		<Identity Id="HansKindberg.VisualStudio.Templates.Package" Version="0.0.2" Language="en-US" Publisher="Hans Kindberg - open source" />
+		<DisplayName>Hans Kindberg - Visual Studio templates</DisplayName>
+		<Description>Hans Kindberg - Visual Studio templates - package</Description>
+	</Metadata>
+	<Installation>
+		<!--
+		This package requires version 12.0 because the templates in this package uses the "$ext_*$"-syntax and that syntax is only supported from Visual Studio version 12 (2013) and up.
+		Read more: https://msdn.microsoft.com/en-us/library/ms171398.aspx#attributesAndElementsToggle, read the description for the attribute "CopyParameters".
+		-->
+		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0,]" />
+	</Installation>
+	<Dependencies>
+		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.0,]" />
+	</Dependencies>
+	<Assets>
+		<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ClassLibrary" d:TargetPath="|ClassLibrary;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+		<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ClassLibrary-WithTestProjects" d:TargetPath="|ClassLibrary-WithTestProjects;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+		<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="UnitTestProject" d:TargetPath="|UnitTestProject;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+		<Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Wizard" Path="|Wizard|" AssemblyName="|Wizard;AssemblyName|" />
+	</Assets>
+</PackageManifest>

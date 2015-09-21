@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- High, Low or Normal -->
+		<MessageImportance Condition="$(MessageImportance) == ''">High</MessageImportance>
+		<OutputSubPath>Hans Kindberg</OutputSubPath><!-- Used by the template-projects to put the built *.zip file in the correct sub-folder. -->
+		<TemplateVersionRevision>0</TemplateVersionRevision>
+		<TemplateVersion>0.0.1</TemplateVersion>
+	</PropertyGroup>
+</Project>

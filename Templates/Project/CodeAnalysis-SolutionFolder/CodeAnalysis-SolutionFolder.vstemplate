@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<CreateInPlace>true</CreateInPlace>
+		<DefaultName>CodeAnalysis</DefaultName>
+		<Description>Creates a CodeAnalysis solution-folder for handling code analysis on the solution-level.</Description>
+		<Hidden>true</Hidden>
+		<Icon>Icon.ico</Icon>
+		<Name>Hans Kindberg: CodeAnalysis solution-folder</Name>
+		<NumberOfParentCategoriesToRollUp>2</NumberOfParentCategoriesToRollUp>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+		<SortOrder>1000</SortOrder>
+		<TemplateID>HansKindberg.VisualStudio.Templates.Project.CodeAnalysis-SolutionFolder</TemplateID>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="Template.csproj">
+			<ProjectItem>Solution.ruleset</ProjectItem>
+			<ProjectItem>Solution.Tests.ruleset</ProjectItem>
+			<ProjectItem>SolutionDictionary.xml</ProjectItem>
+			<ProjectItem>SolutionSuppressions.cs</ProjectItem>
+		</Project>
+		<CustomParameters>
+			<CustomParameter Name="$solution-folder-name$" Value="CodeAnalysis" />
+		</CustomParameters>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>HansKindberg.VisualStudio.Templates.Wizards, Version=0.0.1.0, Culture=neutral, PublicKeyToken=b4d51b5d6b50fc48</Assembly>
+		<FullClassName>HansKindberg.VisualStudio.Templates.Wizards.SolutionFolderWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

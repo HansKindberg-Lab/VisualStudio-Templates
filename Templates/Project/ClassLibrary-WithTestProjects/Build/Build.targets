@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<PrepareForBuildDependsOn>
+			TransferContent;
+			$(PrepareForBuildDependsOn);
+		</PrepareForBuildDependsOn>
+	</PropertyGroup>
+	<Target Name="TransferContent">
+		<PropertyGroup>
+			<ProjectTemplatesDirectory>$(SolutionDir)Templates\Project\</ProjectTemplatesDirectory>
+			<TemplateLinksRelativeDirectory>TemplateLinks\</TemplateLinksRelativeDirectory>
+		</PropertyGroup>
+		<PropertyGroup>
+			<ClassLibraryDirectory>$(ProjectTemplatesDirectory)ClassLibrary-Internal\</ClassLibraryDirectory>
+			<CodeAnalysisDirectory>$(ProjectTemplatesDirectory)CodeAnalysis-SolutionFolder\</CodeAnalysisDirectory>
+			<NuGetDirectory>$(ProjectTemplatesDirectory)NuGet-SolutionFolder\</NuGetDirectory>
+			<PropertiesDirectory>$(ProjectTemplatesDirectory)Properties-SolutionFolder\</PropertiesDirectory>
+			<SigningDirectory>$(ProjectTemplatesDirectory)Signing-SolutionFolder\</SigningDirectory>
+			<SolutionDirectory>$(ProjectTemplatesDirectory)SolutionRoot\</SolutionDirectory>
+			<UnitTestProjectDirectory>$(ProjectTemplatesDirectory)UnitTestProject-Internal\</UnitTestProjectDirectory>
+		</PropertyGroup>
+		<ItemGroup>
+			<ClassLibraryFile Include="$(ClassLibraryDirectory)**\*" Exclude="$(ClassLibraryDirectory)Properties\AssemblyInfo.cs" />
+			<CodeAnalysisFile Include="$(CodeAnalysisDirectory)**\*" Exclude="$(CodeAnalysisDirectory)bin\**\*;$(CodeAnalysisDirectory)obj\**\*;$(CodeAnalysisDirectory)CodeAnalysis-SolutionFolder.csproj*" />
+			<NuGetFile Include="$(NuGetDirectory)**\*" Exclude="$(NuGetDirectory)bin\**\*;$(NuGetDirectory)obj\**\*;$(NuGetDirectory)NuGet-SolutionFolder.csproj*" />
+			<PropertiesFile Include="$(PropertiesDirectory)**\*" Exclude="$(PropertiesDirectory)bin\**\*;$(PropertiesDirectory)obj\**\*;$(PropertiesDirectory)Properties-SolutionFolder.csproj*" />
+			<SigningFile Include="$(SigningDirectory)**\*" Exclude="$(SigningDirectory)bin\**\*;$(SigningDirectory)obj\**\*;$(SigningDirectory)Signing-SolutionFolder.csproj*" />
+			<SolutionFile Include="$(SolutionDirectory)**\*" Exclude="$(SolutionDirectory)bin\**\*;$(SolutionDirectory)obj\**\*;$(SolutionDirectory)SolutionRoot.csproj*" />
+			<UnitTestProjectFile Include="$(UnitTestProjectDirectory)**\*" Exclude="$(UnitTestProjectDirectory)Properties\AssemblyInfo.cs;$(UnitTestProjectDirectory)*.vstemplate" />
+		</ItemGroup>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)ClassLibrary\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(ClassLibraryFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(ClassLibraryFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)ClassLibrary\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)CodeAnalysis\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(CodeAnalysisFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(CodeAnalysisFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)CodeAnalysis\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)NuGet\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(NuGetFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(NuGetFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)NuGet\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)Properties\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(PropertiesFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(PropertiesFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)Properties\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)Signing\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(SigningFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(SigningFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)Signing\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)Solution\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(SolutionFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(SolutionFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)Solution\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)IntegrationTestProject\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(UnitTestProjectFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(UnitTestProjectFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)IntegrationTestProject\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)ShimTestProject\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(UnitTestProjectFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(UnitTestProjectFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)ShimTestProject\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+		<Copy
+			DestinationFiles="$(TemplateLinksRelativeDirectory)UnitTestProject\%(RecursiveDir)%(Filename)%(Extension)"
+			SourceFiles="@(UnitTestProjectFile)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying file '@(UnitTestProjectFile)' to '$(ProjectDir)$(TemplateLinksRelativeDirectory)UnitTestProject\%(RecursiveDir)%(Filename)%(Extension)'."
+		/>
+	</Target>
+</Project>
