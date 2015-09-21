@@ -1,3 +1,4 @@
+.vs/
 _ReSharper*/
 bin/
 debug/
@@ -10,5 +11,3 @@ testresults/
 *.user
 .nuget/NuGet.exe
 Signing/StrongName.snk
-
-!packages/repositories.config

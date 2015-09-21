@@ -50,7 +50,7 @@
 		<OutputPath>bin\Debug\</OutputPath>
 		<StartAction>Program</StartAction>
 		<StartArguments>/rootsuffix Exp</StartArguments>
-		<StartProgram>$(MSBuildProgramFiles32)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe</StartProgram>
+		<StartProgram>$(MSBuildProgramFiles32)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe</StartProgram>
 		<UseVSHostingProcess>true</UseVSHostingProcess>
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
