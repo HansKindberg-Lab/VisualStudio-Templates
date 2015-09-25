@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO.Abstractions;
+using EnvDTE;
 using HansKindberg.VisualStudio.Templates.Wizards.Forms;
 using Microsoft.VisualStudio.TemplateWizard;
 
@@ -16,23 +17,28 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 
 		#region Methods
 
-		protected internal override void Run()
-		{
-			if(!this.ShowProjectPropertiesForm())
-				this.Cancel();
-		}
-
-		public override void RunFinished()
+		public override void ProjectFinishedGenerating(Project project)
 		{
 			try
 			{
-				if(this.WizardRunKind == WizardRunKind.AsMultiProject)
-					this.MoveProjectOneDirectoryUp(this.GetProject());
+				if(this.WizardRunKind != WizardRunKind.AsMultiProject)
+					return;
+
+				if(project == null)
+					project = this.GetProject(this.ProjectName);
+
+				this.MoveProjectOneDirectoryUp(project);
 			}
 			catch(Exception exception)
 			{
 				this.HandleException(exception);
 			}
+		}
+
+		protected internal override void Run()
+		{
+			if(!this.ShowProjectPropertiesForm())
+				this.Cancel();
 		}
 
 		#endregion

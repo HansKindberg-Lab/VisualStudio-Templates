@@ -79,7 +79,7 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 
 		protected internal virtual bool IsNewSolution
 		{
-			get { return string.IsNullOrEmpty(this.DevelopmentToolsEnvironment.Solution.FullName); }
+			get { return string.IsNullOrEmpty(this.Solution.FullName); }
 		}
 
 		protected internal virtual IMessageBoxFactory MessageBoxFactory
@@ -102,6 +102,11 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 		{
 			get { return this.GetReplacementValue(_safeProjectNameKey); }
 			set { this.SetReplacementValue(_safeProjectNameKey, value); }
+		}
+
+		protected internal virtual Solution Solution
+		{
+			get { return this.DevelopmentToolsEnvironment.Solution; }
 		}
 
 		protected internal virtual string SolutionDirectoryPath
@@ -130,17 +135,12 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 			throw new WizardBackoutException();
 		}
 
-		protected internal virtual Project GetProject()
-		{
-			return this.GetProject(this.ProjectName);
-		}
-
 		protected internal virtual Project GetProject(string projectName)
 		{
 			if(string.IsNullOrEmpty(projectName))
 				return null;
 
-			var potentialProjects = this.DevelopmentToolsEnvironment.Solution.GetAllProjects().Where(project => string.Equals(project.Name, projectName)).ToArray();
+			var potentialProjects = this.Solution.GetAllProjects().Where(project => string.Equals(project.Name, projectName)).ToArray();
 
 			if(potentialProjects.Count() > 1)
 				return potentialProjects.FirstOrDefault(project => project.FullName.StartsWith(this.DestinationDirectoryPath, StringComparison.OrdinalIgnoreCase));
@@ -181,10 +181,10 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 		{
 			try
 			{
+				this._customParameters = customParams;
 				this._developmentToolsEnvironment = (DTE) automationObject;
 				this._replacements = replacementsDictionary;
 				this._wizardRunKind = runKind;
-				this._customParameters = customParams;
 			}
 			catch(Exception exception)
 			{

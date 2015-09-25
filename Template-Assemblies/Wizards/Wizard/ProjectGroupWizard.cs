@@ -114,6 +114,41 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 			return this.GetTestProjectNames().Select(this.GetProject).Where(testProject => testProject != null).ToArray();
 		}
 
+		public override void ProjectFinishedGenerating(Project project)
+		{
+			try
+			{
+				if(this.WizardRunKind != WizardRunKind.AsMultiProject)
+					return;
+
+				if(project == null)
+					project = this.GetProject(this.ProjectName);
+
+				// We need to move the test-projects before the project itself, to get rid of directories.
+				var testProjects = this.GetTestProjects().Select(this.MoveProjectOneDirectoryUp).ToArray();
+
+				project = this.MoveProjectOneDirectoryUp(project);
+
+				foreach(var testProject in testProjects)
+				{
+					var testProjectFilePath = testProject.FullName;
+
+					var projectContainer = project.Parent();
+
+					// We remove them and add them again to get them added after the main-project, see variable "project" above.
+					this.Solution.Remove(testProject);
+
+					var refreshedTestProject = projectContainer.AddFromFile(testProjectFilePath);
+
+					((VSProject) refreshedTestProject.Object).References.AddProject(project);
+				}
+			}
+			catch(Exception exception)
+			{
+				this.HandleException(exception);
+			}
+		}
+
 		protected internal override void Run()
 		{
 			while(true)
@@ -134,37 +169,6 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 			this.Replacements[_integrationTestAssemblyName] = this.AssemblyName + "." + this.IntegrationTestProjectNameSuffix;
 			this.Replacements[_shimTestAssemblyName] = this.AssemblyName + "." + this.ShimTestProjectNameSuffix;
 			this.Replacements[_unitTestAssemblyName] = this.AssemblyName + "." + this.UnitTestProjectNameSuffix;
-		}
-
-		public override void RunFinished()
-		{
-			try
-			{
-				if(this.WizardRunKind != WizardRunKind.AsMultiProject)
-					return;
-
-				var testProjects = this.GetTestProjects().Select(this.MoveProjectOneDirectoryUp).ToArray();
-
-				var project = this.MoveProjectOneDirectoryUp(this.GetProject());
-
-				foreach(var testProject in testProjects)
-				{
-					var testProjectFilePath = testProject.FullName;
-
-					var projectContainer = project.Parent();
-
-					// We remove them and add them again to get them added after the main-project, see varaible "project" above.
-					this.DevelopmentToolsEnvironment.Solution.Remove(testProject);
-
-					var refreshedTestProject = projectContainer.AddFromFile(testProjectFilePath);
-
-					((VSProject) refreshedTestProject.Object).References.AddProject(project);
-				}
-			}
-			catch(Exception exception)
-			{
-				this.HandleException(exception);
-			}
 		}
 
 		protected internal virtual bool ShowTestPropertiesForm()

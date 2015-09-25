@@ -156,7 +156,7 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 
 			var projectContainer = project.Parent();
 
-			this.DevelopmentToolsEnvironment.Solution.Remove(project);
+			this.Solution.Remove(project);
 
 			if(this.FileSystem.Directory.Exists(destinationDirectory))
 			{

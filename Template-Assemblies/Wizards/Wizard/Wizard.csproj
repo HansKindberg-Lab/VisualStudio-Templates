@@ -112,7 +112,6 @@
     <Compile Include="Forms\TestPropertiesForm.Designer.cs">
       <DependentUpon>TestPropertiesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO\Extensions\FileSystemExtension.cs" />
     <Compile Include="BasicProjectWizard.cs" />
     <None Include="packages.config" />
     <Compile Include="ProjectGroupWizard.cs" />

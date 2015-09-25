@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.IO.Abstractions;
 using System.Linq;
 using EnvDTE;
 using EnvDTE80;
 using HansKindberg.VisualStudio.Templates.Wizards.Environment.Extensions;
 using HansKindberg.VisualStudio.Templates.Wizards.Forms;
-using HansKindberg.VisualStudio.Templates.Wizards.IO.Extensions;
 
 namespace HansKindberg.VisualStudio.Templates.Wizards
 {
@@ -36,58 +37,12 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 
 		#region Methods
 
-		protected internal virtual void ConvertProjectToSolutionFolder()
+		protected internal override void AddProjectItemsToSolution(IEnumerable<ProjectItem> projectItems, string sourceDirectoryPath, string destinationDirectoryPath)
 		{
-			var project = this.GetProject();
-
-			var solutionFolderSourcePath = this.GetSourceDirectoryPath(project);
-
-			var solutionFolder = this.GetSolutionFolder();
-
-			if(solutionFolder == null)
-			{
-				var solution = (Solution2) this.DevelopmentToolsEnvironment.Solution;
-
-				solutionFolder = (SolutionFolder) solution.AddSolutionFolder(this.SolutionFolderName).Object;
-			}
-
-			var projectItems = project.ProjectItems.Cast<ProjectItem>();
-
-			this.SynchronizeSolutionFolderContent(solutionFolder, solutionFolderSourcePath, this.FileSystem.Path.Combine(this.SolutionDirectoryPath, solutionFolder.Parent.Name), projectItems);
-
-			this.DevelopmentToolsEnvironment.Solution.Remove(project);
-
-			this.FileSystem.Directory.Delete(solutionFolderSourcePath, true);
+			this.AddProjectItemsToSolution(this.GetOrCreateSolutionFolder(), projectItems, sourceDirectoryPath, destinationDirectoryPath);
 		}
 
-		protected internal virtual SolutionFolder GetSolutionFolder()
-		{
-			return this.GetSolutionFolder(this.SolutionFolderName);
-		}
-
-		protected internal virtual SolutionFolder GetSolutionFolder(string solutionFolderName)
-		{
-			var project = this.GetProject(solutionFolderName);
-
-			if(project != null)
-				return project.Object as SolutionFolder;
-
-			return null;
-		}
-
-		public override void RunFinished()
-		{
-			try
-			{
-				this.ConvertProjectToSolutionFolder();
-			}
-			catch(Exception exception)
-			{
-				this.HandleException(exception);
-			}
-		}
-
-		protected internal virtual void SynchronizeSolutionFolderContent(SolutionFolder solutionFolder, string solutionFolderSourcePath, string solutionFolderDestinationPath, IEnumerable<ProjectItem> projectItems)
+		protected internal virtual void AddProjectItemsToSolution(SolutionFolder solutionFolder, IEnumerable<ProjectItem> projectItems, string sourceDirectoryPath, string destinationDirectoryPath)
 		{
 			if(solutionFolder == null)
 				throw new ArgumentNullException("solutionFolder");
@@ -99,30 +54,92 @@ namespace HansKindberg.VisualStudio.Templates.Wizards
 			{
 				if(projectItem.IsPhysicalFolder())
 				{
-					this.SynchronizeSolutionFolderContent((SolutionFolder) solutionFolder.AddSolutionFolder(projectItem.Name).Object, this.FileSystem.Path.Combine(solutionFolderSourcePath, projectItem.Name), this.FileSystem.Path.Combine(solutionFolderDestinationPath, projectItem.Name), projectItem.ProjectItems.Cast<ProjectItem>());
+					var childItem = solutionFolder.Parent.ProjectItems.Cast<ProjectItem>().FirstOrDefault(item => string.Equals(item.Name, projectItem.Name, StringComparison.OrdinalIgnoreCase));
+
+					// ReSharper disable ConvertIfStatementToNullCoalescingExpression
+					if(childItem == null)
+						childItem = solutionFolder.AddSolutionFolder(projectItem.Name).ParentProjectItem;
+					// ReSharper restore ConvertIfStatementToNullCoalescingExpression
+
+					SolutionFolder childSolutionFolder = null;
+
+					if(childItem.SubProject != null)
+						childSolutionFolder = childItem.SubProject.Object as SolutionFolder;
+
+					if(childSolutionFolder == null)
+						throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "The project-item \"{0}\" already exists but is not a solution-folder.", childItem.Name));
+
+					this.AddProjectItemsToSolution(childSolutionFolder, projectItem.ProjectItems.Cast<ProjectItem>(), this.FileSystem.Path.Combine(sourceDirectoryPath, projectItem.Name), this.FileSystem.Path.Combine(destinationDirectoryPath, projectItem.Name));
 				}
 				else
 				{
-					var destinationFilePath = this.FileSystem.Path.Combine(solutionFolderDestinationPath, projectItem.Name);
-					var destinationFileExists = this.FileSystem.File.Exists(destinationFilePath);
+					this.AddProjectItemToSolutionPhysicallyIfNecessary(projectItem, sourceDirectoryPath, destinationDirectoryPath);
 
-					var sourceFilePath = this.FileSystem.Path.Combine(solutionFolderSourcePath, projectItem.Name);
-					var sourceFileExists = this.FileSystem.File.Exists(sourceFilePath);
+					var itemAlreadyExists = solutionFolder.Parent.ProjectItems.Cast<ProjectItem>().Any(item => string.Equals(item.Name, projectItem.Name, StringComparison.OrdinalIgnoreCase));
 
-					if(!destinationFileExists)
+					if(itemAlreadyExists)
+						continue;
+
+					var filesToDelete = new List<FileInfoBase>();
+
+					var destinationFilePath = this.FileSystem.Path.Combine(destinationDirectoryPath, projectItem.Name);
+
+					if(!this.FileSystem.File.Exists(destinationFilePath))
 					{
-						if(sourceFileExists)
-							this.FileSystem.CopyFile(sourceFilePath, this.FileSystem.FileInfo.FromFileName(destinationFilePath).DirectoryName, false, true);
-						else
-							this.FileSystem.CreateFile(destinationFilePath, false);
+						var file = this.FileSystem.FileInfo.FromFileName(destinationFilePath);
+
+						if(!file.Directory.Exists)
+							file.Directory.Create();
+
+						using(this.FileSystem.File.Create(destinationFilePath)) {}
+
+						filesToDelete.Add(file);
 					}
 
 					solutionFolder.Parent.ProjectItems.AddFromFile(destinationFilePath);
 
-					if(!destinationFileExists && !sourceFileExists)
-						this.FileSystem.File.Delete(destinationFilePath);
+					var document = this.DevelopmentToolsEnvironment.Documents.Cast<Document>().FirstOrDefault(item => string.Equals(item.FullName, destinationFilePath, StringComparison.OrdinalIgnoreCase));
+
+					if(document != null)
+						document.Close();
+
+					foreach(var item in filesToDelete)
+					{
+						var directory = item.Directory;
+
+						if(item.Exists)
+							item.Delete();
+
+						if(!directory.GetFileSystemInfos().Any())
+							directory.Delete();
+					}
 				}
 			}
+		}
+
+		protected internal override string GetDestinationDirectoryPath()
+		{
+			return this.FileSystem.Path.Combine(this.SolutionDirectoryPath, this.SolutionFolderName);
+		}
+
+		[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
+		protected internal virtual SolutionFolder GetOrCreateSolutionFolder()
+		{
+			var project = this.Solution.Projects.Cast<Project>().FirstOrDefault(item => string.Equals(item.Name, this.SolutionFolderName, StringComparison.OrdinalIgnoreCase));
+
+			// ReSharper disable ConvertIfStatementToNullCoalescingExpression
+			// ReSharper disable SuspiciousTypeConversion.Global
+			if(project == null)
+				project = ((Solution2) this.Solution).AddSolutionFolder(this.SolutionFolderName);
+			// ReSharper restore SuspiciousTypeConversion.Global
+			// ReSharper restore ConvertIfStatementToNullCoalescingExpression
+
+			var solutionFolder = project.Object as SolutionFolder;
+
+			if(solutionFolder == null)
+				throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "The project \"{0}\" already exists and is not a solution-folder.", this.SolutionFolderName));
+
+			return solutionFolder;
 		}
 
 		#endregion
