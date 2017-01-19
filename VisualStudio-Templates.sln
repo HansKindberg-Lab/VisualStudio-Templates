@@ -8,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assemblies", "Assemblies", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", "{3DE81B66-2550-4DE0-9076-B8D0BDD1A94F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Assemblies\Templating\UnitTests\UnitTests.csproj", "{4B7B51D7-8E5E-4F41-B15F-567EC165A327}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating.UnitTests", "Assemblies\Templating\UnitTests\Templating.UnitTests.csproj", "{4B7B51D7-8E5E-4F41-B15F-567EC165A327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "Assemblies\Templating\IntegrationTests\IntegrationTests.csproj", "{3F05216D-9E50-40E7-9235-EFA9D792D70A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating.IntegrationTests", "Assemblies\Templating\IntegrationTests\Templating.IntegrationTests.csproj", "{3F05216D-9E50-40E7-9235-EFA9D792D70A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating", "Assemblies\Templating\Templating\Templating.csproj", "{706646B2-F6BC-4A97-8D8A-CCD6D325000D}"
 EndProject
@@ -101,9 +101,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{076C33
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Assemblies\Common\Common\Common.csproj", "{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Assemblies\Common\UnitTests\UnitTests.csproj", "{6CC264B4-5F01-405E-8F4B-90207BB1C228}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UnitTests", "Assemblies\Common\UnitTests\Common.UnitTests.csproj", "{6CC264B4-5F01-405E-8F4B-90207BB1C228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "Assemblies\Common\IntegrationTests\IntegrationTests.csproj", "{DDBCB877-05EF-4C71-A695-048F8EB36563}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.IntegrationTests", "Assemblies\Common\IntegrationTests\Common.IntegrationTests.csproj", "{DDBCB877-05EF-4C71-A695-048F8EB36563}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Templates\Test\Test.csproj", "{41DD85DD-D201-443D-85F4-C2E93F633D60}"
 EndProject
