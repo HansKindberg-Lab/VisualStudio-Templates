@@ -1,0 +1,15 @@
+_ReSharper*/
+.Global/Signing/*
+.vs/
+bin/
+debug/
+FakesAssemblies/
+obj/
+packages/*
+release/
+testresults/
+*.suo
+*.user
+
+!.Global/Signing/ReadMe.txt
+!.Global/Signing/StrongName.Development.snk

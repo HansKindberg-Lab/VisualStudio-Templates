@@ -1,5 +1,6 @@
-.vs/
 _ReSharper*/
+.Global/Signing/*
+.vs/
 bin/
 debug/
 FakesAssemblies/
@@ -20,9 +21,9 @@ Templates/Project/UnitTestProject/TemplateLinks/
 testresults/
 *.suo
 *.user
-.nuget/NuGet.exe
-Signing/StrongName.snk
 
+!.Global/Signing/ReadMe.txt
+!.Global/Signing/StrongName.Development.snk
 !Templates/Project/ClassLibrary-WithTestProjects/TemplateLinks/ClassLibrary/Properties/
 !Templates/Project/ClassLibrary-WithTestProjects/TemplateLinks/IntegrationTestProject/Properties/
 !Templates/Project/ClassLibrary-WithTestProjects/TemplateLinks/IntegrationTestProject/*.vstemplate

@@ -1,134 +1,111 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A79AA815-46E6-4B28-B16D-2F9C32D9793A}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.config = .nuget\NuGet.config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{E98FCBE8-CE42-4E6B-94E7-34F9226D27D2}"
-	ProjectSection(SolutionItems) = preProject
-		Properties\Solution-AssemblyInfo.cs = Properties\Solution-AssemblyInfo.cs
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{570EEA61-BE33-4AD4-96AA-8BEB60B01301}"
-	ProjectSection(SolutionItems) = preProject
-		CodeAnalysis\Solution.ruleset = CodeAnalysis\Solution.ruleset
-		CodeAnalysis\Solution.Tests.ruleset = CodeAnalysis\Solution.Tests.ruleset
-		CodeAnalysis\SolutionDictionary.xml = CodeAnalysis\SolutionDictionary.xml
-		CodeAnalysis\SolutionSuppressions.cs = CodeAnalysis\SolutionSuppressions.cs
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{AFAF90F3-0E8E-40FC-A30B-886D9542FF44}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{B5955564-E9F4-4E38-86C5-CD92397A06BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assemblies", "Assemblies", "{0284A0B2-019E-4707-AC81-C7EF6740694F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", "{3DE81B66-2550-4DE0-9076-B8D0BDD1A94F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Assemblies\Templating\UnitTests\UnitTests.csproj", "{4B7B51D7-8E5E-4F41-B15F-567EC165A327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "Assemblies\Templating\IntegrationTests\IntegrationTests.csproj", "{3F05216D-9E50-40E7-9235-EFA9D792D70A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating", "Assemblies\Templating\Templating\Templating.csproj", "{706646B2-F6BC-4A97-8D8A-CCD6D325000D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{45C61118-1EC6-4748-9E79-2A44FC21AE7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{D0098F07-1365-4F6E-9B58-04C190C05391}"
 	ProjectSection(SolutionItems) = preProject
-		Templates\Build\Build.props = Templates\Build\Build.props
+		.Global\Build\Build.props = .Global\Build\Build.props
+		.Global\Build\Build.targets = .Global\Build\Build.targets
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template-Assemblies", "Template-Assemblies", "{0284A0B2-019E-4707-AC81-C7EF6740694F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wizards", "Wizards", "{3DE81B66-2550-4DE0-9076-B8D0BDD1A94F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{A514573A-32A8-4C03-8650-7734E235AE72}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassLibrary-Internal", "ClassLibrary-Internal", "{897DF7E8-7DC1-48F6-8CFD-0C804362FA40}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{D4C06315-AEE4-4592-968B-1DE76A64FB4E}"
 	ProjectSection(SolutionItems) = preProject
-		Templates\Project\ClassLibrary-Internal\ClassLibrary-Internal.vstemplate = Templates\Project\ClassLibrary-Internal\ClassLibrary-Internal.vstemplate
-		Templates\Project\ClassLibrary-Internal\Icon.ico = Templates\Project\ClassLibrary-Internal\Icon.ico
-		Templates\Project\ClassLibrary-Internal\Template.csproj = Templates\Project\ClassLibrary-Internal\Template.csproj
-		Templates\Project\ClassLibrary-Internal\Template.nuspec = Templates\Project\ClassLibrary-Internal\Template.nuspec
+		.Global\CodeAnalysis\Solution.ruleset = .Global\CodeAnalysis\Solution.ruleset
+		.Global\CodeAnalysis\Solution.Tests.ruleset = .Global\CodeAnalysis\Solution.Tests.ruleset
+		.Global\CodeAnalysis\SolutionDictionary.xml = .Global\CodeAnalysis\SolutionDictionary.xml
+		.Global\CodeAnalysis\SolutionSuppressions.cs = .Global\CodeAnalysis\SolutionSuppressions.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{82A77928-0C27-4261-B093-F4A2EDE51240}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Project\ClassLibrary-Internal\Build\Build.props = Templates\Project\ClassLibrary-Internal\Build\Build.props
-		Templates\Project\ClassLibrary-Internal\Build\Build.targets = Templates\Project\ClassLibrary-Internal\Build\Build.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{23F99187-9124-4C01-9B7C-1D4490FF4A5D}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Project\ClassLibrary-Internal\CodeAnalysis\AssemblyDictionary.xml = Templates\Project\ClassLibrary-Internal\CodeAnalysis\AssemblyDictionary.xml
-		Templates\Project\ClassLibrary-Internal\CodeAnalysis\AssemblySuppressions.cs = Templates\Project\ClassLibrary-Internal\CodeAnalysis\AssemblySuppressions.cs
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{D76EE897-B3BC-4155-A22D-357846736EBD}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Project\ClassLibrary-Internal\Properties\AssemblyInfo.cs = Templates\Project\ClassLibrary-Internal\Properties\AssemblyInfo.cs
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTestProject-Internal", "UnitTestProject-Internal", "{F8E4EBF0-9620-403B-9093-F721C64C9FFF}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Project\UnitTestProject-Internal\Icon.ico = Templates\Project\UnitTestProject-Internal\Icon.ico
-		Templates\Project\UnitTestProject-Internal\Template.csproj = Templates\Project\UnitTestProject-Internal\Template.csproj
-		Templates\Project\UnitTestProject-Internal\UnitTestProject-Internal.vstemplate = Templates\Project\UnitTestProject-Internal\UnitTestProject-Internal.vstemplate
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{C1B32A20-ED99-41AD-812B-6A5836ACA7DD}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Project\UnitTestProject-Internal\CodeAnalysis\AssemblyDictionary.xml = Templates\Project\UnitTestProject-Internal\CodeAnalysis\AssemblyDictionary.xml
-		Templates\Project\UnitTestProject-Internal\CodeAnalysis\AssemblySuppressions.cs = Templates\Project\UnitTestProject-Internal\CodeAnalysis\AssemblySuppressions.cs
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{F20D9739-C1B3-45F3-8119-DCAD6EB529F4}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Project\UnitTestProject-Internal\Properties\AssemblyInfo.cs = Templates\Project\UnitTestProject-Internal\Properties\AssemblyInfo.cs
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Template-Assemblies\Wizards\UnitTests\UnitTests.csproj", "{4B7B51D7-8E5E-4F41-B15F-567EC165A327}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Package", "Package\Package.csproj", "{75B78FD8-3EAE-4AC2-BDBB-FEBA85481C83}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet-SolutionFolder", "Templates\Project\NuGet-SolutionFolder\NuGet-SolutionFolder.csproj", "{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis-SolutionFolder", "Templates\Project\CodeAnalysis-SolutionFolder\CodeAnalysis-SolutionFolder.csproj", "{5D2760B4-962D-42EB-90F8-77A3FFD508FB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Properties-SolutionFolder", "Templates\Project\Properties-SolutionFolder\Properties-SolutionFolder.csproj", "{46368926-F75D-4BE7-8230-B6C7C94B0CA4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "Templates\Project\ClassLibrary\ClassLibrary.csproj", "{0DB2B218-2D64-430D-A229-06BCA4BCED3C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{46368926-F75D-4BE7-8230-B6C7C94B0CA4} = {46368926-F75D-4BE7-8230-B6C7C94B0CA4}
-		{5D2760B4-962D-42EB-90F8-77A3FFD508FB} = {5D2760B4-962D-42EB-90F8-77A3FFD508FB}
-		{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859} = {1E4FD9F9-0852-4C46-B59B-ACD53AE3E859}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "Templates\Project\UnitTestProject\UnitTestProject.csproj", "{15BD386B-DD28-4009-8410-929F69E423E3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{46368926-F75D-4BE7-8230-B6C7C94B0CA4} = {46368926-F75D-4BE7-8230-B6C7C94B0CA4}
-		{5D2760B4-962D-42EB-90F8-77A3FFD508FB} = {5D2760B4-962D-42EB-90F8-77A3FFD508FB}
-		{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859} = {1E4FD9F9-0852-4C46-B59B-ACD53AE3E859}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary-WithTestProjects", "Templates\Project\ClassLibrary-WithTestProjects\ClassLibrary-WithTestProjects.csproj", "{E88024DD-4BF0-42D4-B1F3-58EA56A1A15C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{46368926-F75D-4BE7-8230-B6C7C94B0CA4} = {46368926-F75D-4BE7-8230-B6C7C94B0CA4}
-		{5D2760B4-962D-42EB-90F8-77A3FFD508FB} = {5D2760B4-962D-42EB-90F8-77A3FFD508FB}
-		{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859} = {1E4FD9F9-0852-4C46-B59B-ACD53AE3E859}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "Template-Assemblies\Wizards\IntegrationTests\IntegrationTests.csproj", "{3F05216D-9E50-40E7-9235-EFA9D792D70A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wizard", "Template-Assemblies\Wizards\Wizard\Wizard.csproj", "{706646B2-F6BC-4A97-8D8A-CCD6D325000D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{B70172B4-94B2-4454-A4E0-44175FB7DED5}"
-	ProjectSection(SolutionItems) = preProject
-		Signing\ReadMe.txt = Signing\ReadMe.txt
-		Signing\StrongName.Development.snk = Signing\StrongName.Development.snk
-		Signing\StrongName.snk = Signing\StrongName.snk
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signing-SolutionFolder", "Templates\Project\Signing-SolutionFolder\Signing-SolutionFolder.csproj", "{4FF2E318-2301-4036-A606-F03362126B78}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{AD860E67-DD8D-49E0-BB27-14DAA7366766}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B5717C0C-9D22-4DD6-9856-EC9C141C9971}"
 	ProjectSection(SolutionItems) = preProject
 		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionRoot", "Templates\Project\SolutionRoot\SolutionRoot.csproj", "{148AA93A-96C8-4F90-B051-3121FA98D3A2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{6F267AD9-891D-4D7F-84BE-30C53D414AE5}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{E2DD4B9C-93C0-47CD-83D0-CA9B01B8389D}"
+	ProjectSection(SolutionItems) = preProject
+		.Global\Properties\Solution-Basic-AssemblyInfo.cs = .Global\Properties\Solution-Basic-AssemblyInfo.cs
+		.Global\Properties\Solution-Version-AssemblyInfo.cs = .Global\Properties\Solution-Version-AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{159F33E7-10EF-4EEB-9BB9-AD91965C89B3}"
+	ProjectSection(SolutionItems) = preProject
+		.Global\Signing\ReadMe.txt = .Global\Signing\ReadMe.txt
+		.Global\Signing\StrongName.Development.snk = .Global\Signing\StrongName.Development.snk
+		.Global\Signing\StrongName.snk = .Global\Signing\StrongName.snk
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution-Level-Packages", ".Global\NuGet\Solution-Level-Packages.csproj", "{495F7393-3EDA-4AED-9951-4817312E5554}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution-files", "Solution-files", "{ED5BD594-C5DB-4417-96EF-CC8053AD7C78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{8D213AD0-A9AA-47BC-8010-C5CE7424A46D}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Solution-files\.gitignore = Templates\Solution-files\.gitignore
+		Templates\Solution-files\NuGet.config = Templates\Solution-files\NuGet.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{145774F8-F9E7-4C71-B974-FE2A37237946}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Solution-files\.Global\Build\Build.props = Templates\Solution-files\.Global\Build\Build.props
+		Templates\Solution-files\.Global\Build\Build.targets = Templates\Solution-files\.Global\Build\Build.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{34EA0E95-F181-4012-B7EA-C0F76EE65F16}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Solution-files\.Global\CodeAnalysis\Solution.ruleset = Templates\Solution-files\.Global\CodeAnalysis\Solution.ruleset
+		Templates\Solution-files\.Global\CodeAnalysis\Solution.Tests.ruleset = Templates\Solution-files\.Global\CodeAnalysis\Solution.Tests.ruleset
+		Templates\Solution-files\.Global\CodeAnalysis\SolutionDictionary.xml = Templates\Solution-files\.Global\CodeAnalysis\SolutionDictionary.xml
+		Templates\Solution-files\.Global\CodeAnalysis\SolutionSuppressions.cs = Templates\Solution-files\.Global\CodeAnalysis\SolutionSuppressions.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{2D5C86C1-7EB8-4564-8F5E-34165ACC6ABF}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Solution-files\.Global\NuGet\packages.config = Templates\Solution-files\.Global\NuGet\packages.config
+		Templates\Solution-files\.Global\NuGet\Solution-Level-Packages.csproj = Templates\Solution-files\.Global\NuGet\Solution-Level-Packages.csproj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{01EEFF7C-8B85-4572-8FC3-E1883B7D12F6}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Solution-files\.Global\Properties\Solution-Basic-AssemblyInfo.cs = Templates\Solution-files\.Global\Properties\Solution-Basic-AssemblyInfo.cs
+		Templates\Solution-files\.Global\Properties\Solution-Version-AssemblyInfo.cs = Templates\Solution-files\.Global\Properties\Solution-Version-AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{56E80641-69BF-4848-BA34-5150B02E8304}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Solution-files\.Global\Signing\ReadMe.txt = Templates\Solution-files\.Global\Signing\ReadMe.txt
+		Templates\Solution-files\.Global\Signing\StrongName.Development.snk = Templates\Solution-files\.Global\Signing\StrongName.Development.snk
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Package", "Package\Package.csproj", "{1A0A592C-76A9-42FA-A436-DED53B1AD7B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{076C33DB-7650-4DC2-A6D5-70E9D4E6F710}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Assemblies\Common\Common\Common.csproj", "{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Assemblies\Common\UnitTests\UnitTests.csproj", "{6CC264B4-5F01-405E-8F4B-90207BB1C228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "Assemblies\Common\IntegrationTests\IntegrationTests.csproj", "{DDBCB877-05EF-4C71-A695-048F8EB36563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Templates\Test\Test.csproj", "{41DD85DD-D201-443D-85F4-C2E93F633D60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -140,34 +117,6 @@ Global
 		{4B7B51D7-8E5E-4F41-B15F-567EC165A327}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B7B51D7-8E5E-4F41-B15F-567EC165A327}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B7B51D7-8E5E-4F41-B15F-567EC165A327}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75B78FD8-3EAE-4AC2-BDBB-FEBA85481C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75B78FD8-3EAE-4AC2-BDBB-FEBA85481C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75B78FD8-3EAE-4AC2-BDBB-FEBA85481C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75B78FD8-3EAE-4AC2-BDBB-FEBA85481C83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D2760B4-962D-42EB-90F8-77A3FFD508FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D2760B4-962D-42EB-90F8-77A3FFD508FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D2760B4-962D-42EB-90F8-77A3FFD508FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D2760B4-962D-42EB-90F8-77A3FFD508FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{46368926-F75D-4BE7-8230-B6C7C94B0CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46368926-F75D-4BE7-8230-B6C7C94B0CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46368926-F75D-4BE7-8230-B6C7C94B0CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46368926-F75D-4BE7-8230-B6C7C94B0CA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DB2B218-2D64-430D-A229-06BCA4BCED3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DB2B218-2D64-430D-A229-06BCA4BCED3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DB2B218-2D64-430D-A229-06BCA4BCED3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DB2B218-2D64-430D-A229-06BCA4BCED3C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15BD386B-DD28-4009-8410-929F69E423E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15BD386B-DD28-4009-8410-929F69E423E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15BD386B-DD28-4009-8410-929F69E423E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15BD386B-DD28-4009-8410-929F69E423E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E88024DD-4BF0-42D4-B1F3-58EA56A1A15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E88024DD-4BF0-42D4-B1F3-58EA56A1A15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E88024DD-4BF0-42D4-B1F3-58EA56A1A15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E88024DD-4BF0-42D4-B1F3-58EA56A1A15C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3F05216D-9E50-40E7-9235-EFA9D792D70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3F05216D-9E50-40E7-9235-EFA9D792D70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F05216D-9E50-40E7-9235-EFA9D792D70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -176,39 +125,57 @@ Global
 		{706646B2-F6BC-4A97-8D8A-CCD6D325000D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{706646B2-F6BC-4A97-8D8A-CCD6D325000D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{706646B2-F6BC-4A97-8D8A-CCD6D325000D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FF2E318-2301-4036-A606-F03362126B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FF2E318-2301-4036-A606-F03362126B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FF2E318-2301-4036-A606-F03362126B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FF2E318-2301-4036-A606-F03362126B78}.Release|Any CPU.Build.0 = Release|Any CPU
-		{148AA93A-96C8-4F90-B051-3121FA98D3A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{148AA93A-96C8-4F90-B051-3121FA98D3A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{148AA93A-96C8-4F90-B051-3121FA98D3A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{148AA93A-96C8-4F90-B051-3121FA98D3A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495F7393-3EDA-4AED-9951-4817312E5554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495F7393-3EDA-4AED-9951-4817312E5554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495F7393-3EDA-4AED-9951-4817312E5554}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{495F7393-3EDA-4AED-9951-4817312E5554}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1A0A592C-76A9-42FA-A436-DED53B1AD7B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0A592C-76A9-42FA-A436-DED53B1AD7B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0A592C-76A9-42FA-A436-DED53B1AD7B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0A592C-76A9-42FA-A436-DED53B1AD7B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC264B4-5F01-405E-8F4B-90207BB1C228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC264B4-5F01-405E-8F4B-90207BB1C228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC264B4-5F01-405E-8F4B-90207BB1C228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC264B4-5F01-405E-8F4B-90207BB1C228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDBCB877-05EF-4C71-A695-048F8EB36563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDBCB877-05EF-4C71-A695-048F8EB36563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDBCB877-05EF-4C71-A695-048F8EB36563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDBCB877-05EF-4C71-A695-048F8EB36563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41DD85DD-D201-443D-85F4-C2E93F633D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41DD85DD-D201-443D-85F4-C2E93F633D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41DD85DD-D201-443D-85F4-C2E93F633D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41DD85DD-D201-443D-85F4-C2E93F633D60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B5955564-E9F4-4E38-86C5-CD92397A06BE} = {AFAF90F3-0E8E-40FC-A30B-886D9542FF44}
 		{3DE81B66-2550-4DE0-9076-B8D0BDD1A94F} = {0284A0B2-019E-4707-AC81-C7EF6740694F}
-		{A514573A-32A8-4C03-8650-7734E235AE72} = {AFAF90F3-0E8E-40FC-A30B-886D9542FF44}
-		{897DF7E8-7DC1-48F6-8CFD-0C804362FA40} = {A514573A-32A8-4C03-8650-7734E235AE72}
-		{82A77928-0C27-4261-B093-F4A2EDE51240} = {897DF7E8-7DC1-48F6-8CFD-0C804362FA40}
-		{23F99187-9124-4C01-9B7C-1D4490FF4A5D} = {897DF7E8-7DC1-48F6-8CFD-0C804362FA40}
-		{D76EE897-B3BC-4155-A22D-357846736EBD} = {897DF7E8-7DC1-48F6-8CFD-0C804362FA40}
-		{F8E4EBF0-9620-403B-9093-F721C64C9FFF} = {A514573A-32A8-4C03-8650-7734E235AE72}
-		{C1B32A20-ED99-41AD-812B-6A5836ACA7DD} = {F8E4EBF0-9620-403B-9093-F721C64C9FFF}
-		{F20D9739-C1B3-45F3-8119-DCAD6EB529F4} = {F8E4EBF0-9620-403B-9093-F721C64C9FFF}
 		{4B7B51D7-8E5E-4F41-B15F-567EC165A327} = {3DE81B66-2550-4DE0-9076-B8D0BDD1A94F}
-		{1E4FD9F9-0852-4C46-B59B-ACD53AE3E859} = {A514573A-32A8-4C03-8650-7734E235AE72}
-		{5D2760B4-962D-42EB-90F8-77A3FFD508FB} = {A514573A-32A8-4C03-8650-7734E235AE72}
-		{46368926-F75D-4BE7-8230-B6C7C94B0CA4} = {A514573A-32A8-4C03-8650-7734E235AE72}
-		{0DB2B218-2D64-430D-A229-06BCA4BCED3C} = {A514573A-32A8-4C03-8650-7734E235AE72}
-		{15BD386B-DD28-4009-8410-929F69E423E3} = {A514573A-32A8-4C03-8650-7734E235AE72}
-		{E88024DD-4BF0-42D4-B1F3-58EA56A1A15C} = {A514573A-32A8-4C03-8650-7734E235AE72}
 		{3F05216D-9E50-40E7-9235-EFA9D792D70A} = {3DE81B66-2550-4DE0-9076-B8D0BDD1A94F}
 		{706646B2-F6BC-4A97-8D8A-CCD6D325000D} = {3DE81B66-2550-4DE0-9076-B8D0BDD1A94F}
-		{4FF2E318-2301-4036-A606-F03362126B78} = {A514573A-32A8-4C03-8650-7734E235AE72}
-		{148AA93A-96C8-4F90-B051-3121FA98D3A2} = {A514573A-32A8-4C03-8650-7734E235AE72}
+		{D0098F07-1365-4F6E-9B58-04C190C05391} = {45C61118-1EC6-4748-9E79-2A44FC21AE7B}
+		{D4C06315-AEE4-4592-968B-1DE76A64FB4E} = {45C61118-1EC6-4748-9E79-2A44FC21AE7B}
+		{B5717C0C-9D22-4DD6-9856-EC9C141C9971} = {45C61118-1EC6-4748-9E79-2A44FC21AE7B}
+		{6F267AD9-891D-4D7F-84BE-30C53D414AE5} = {45C61118-1EC6-4748-9E79-2A44FC21AE7B}
+		{E2DD4B9C-93C0-47CD-83D0-CA9B01B8389D} = {45C61118-1EC6-4748-9E79-2A44FC21AE7B}
+		{159F33E7-10EF-4EEB-9BB9-AD91965C89B3} = {45C61118-1EC6-4748-9E79-2A44FC21AE7B}
+		{495F7393-3EDA-4AED-9951-4817312E5554} = {6F267AD9-891D-4D7F-84BE-30C53D414AE5}
+		{ED5BD594-C5DB-4417-96EF-CC8053AD7C78} = {AFAF90F3-0E8E-40FC-A30B-886D9542FF44}
+		{8D213AD0-A9AA-47BC-8010-C5CE7424A46D} = {ED5BD594-C5DB-4417-96EF-CC8053AD7C78}
+		{145774F8-F9E7-4C71-B974-FE2A37237946} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
+		{34EA0E95-F181-4012-B7EA-C0F76EE65F16} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
+		{2D5C86C1-7EB8-4564-8F5E-34165ACC6ABF} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
+		{01EEFF7C-8B85-4572-8FC3-E1883B7D12F6} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
+		{56E80641-69BF-4848-BA34-5150B02E8304} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
+		{076C33DB-7650-4DC2-A6D5-70E9D4E6F710} = {0284A0B2-019E-4707-AC81-C7EF6740694F}
+		{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2} = {076C33DB-7650-4DC2-A6D5-70E9D4E6F710}
+		{6CC264B4-5F01-405E-8F4B-90207BB1C228} = {076C33DB-7650-4DC2-A6D5-70E9D4E6F710}
+		{DDBCB877-05EF-4C71-A695-048F8EB36563} = {076C33DB-7650-4DC2-A6D5-70E9D4E6F710}
+		{41DD85DD-D201-443D-85F4-C2E93F633D60} = {AFAF90F3-0E8E-40FC-A30B-886D9542FF44}
 	EndGlobalSection
 EndGlobal

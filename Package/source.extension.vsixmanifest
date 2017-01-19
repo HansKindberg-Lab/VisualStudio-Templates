@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 	<Metadata>
 		<!-- Do not remove any or change the order of the following elements. It can/will cause a xml-schema-validating error. -->
@@ -17,9 +17,7 @@
 		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.0,]" />
 	</Dependencies>
 	<Assets>
-		<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ClassLibrary" d:TargetPath="|ClassLibrary;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-		<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ClassLibrary-WithTestProjects" d:TargetPath="|ClassLibrary-WithTestProjects;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-		<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="UnitTestProject" d:TargetPath="|UnitTestProject;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-		<Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Wizard" Path="|Wizard|" AssemblyName="|Wizard;AssemblyName|" />
+		<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="Test" d:TargetPath="|Test;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+		<Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Templating" Path="|Templating|" AssemblyName="|Templating;AssemblyName|" />
 	</Assets>
 </PackageManifest>
