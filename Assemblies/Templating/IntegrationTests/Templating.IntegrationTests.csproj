@@ -42,10 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <ProjectReference Include="..\Templating\Templating.csproj">
+    <ProjectReference Include="..\Project\Templating.csproj">
       <Project>{706646b2-f6bc-4a97-8d8a-ccd6d325000d}</Project>
       <Name>Templating</Name>
     </ProjectReference>

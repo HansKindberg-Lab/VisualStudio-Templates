@@ -71,6 +71,12 @@
       <Link>Properties\Solution-Version-AssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project\Common.csproj">
+      <Project>{daaebbd8-05d6-4b45-b2a9-2fdf4fcec2d2}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

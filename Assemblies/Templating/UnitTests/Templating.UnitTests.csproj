@@ -46,7 +46,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <ProjectReference Include="..\Templating\Templating.csproj">
+    <ProjectReference Include="..\Project\Templating.csproj">
       <Project>{706646b2-f6bc-4a97-8d8a-ccd6d325000d}</Project>
       <Name>Templating</Name>
     </ProjectReference>

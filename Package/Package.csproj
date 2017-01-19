@@ -56,18 +56,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Assemblies\Templating\Templating\Templating.csproj">
-      <Project>{706646b2-f6bc-4a97-8d8a-ccd6d325000d}</Project>
+    <ProjectReference Include="..\Assemblies\Templating\Project\Templating.csproj">
+      <Project>{706646B2-F6BC-4A97-8D8A-CCD6D325000D}</Project>
       <Name>Templating</Name>
-      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
     <ProjectReference Include="..\Templates\Test\Test.csproj">
-      <Project>{41dd85dd-d201-443d-85f4-c2e93f633d60}</Project>
+      <Project>{41DD85DD-D201-443D-85F4-C2E93F633D60}</Project>
       <Name>Test</Name>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

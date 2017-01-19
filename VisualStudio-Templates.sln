@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating.UnitTests", "Ass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating.IntegrationTests", "Assemblies\Templating\IntegrationTests\Templating.IntegrationTests.csproj", "{3F05216D-9E50-40E7-9235-EFA9D792D70A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating", "Assemblies\Templating\Templating\Templating.csproj", "{706646B2-F6BC-4A97-8D8A-CCD6D325000D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating", "Assemblies\Templating\Project\Templating.csproj", "{706646B2-F6BC-4A97-8D8A-CCD6D325000D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{45C61118-1EC6-4748-9E79-2A44FC21AE7B}"
 EndProject
@@ -99,7 +99,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Package", "Package\Package.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{076C33DB-7650-4DC2-A6D5-70E9D4E6F710}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Assemblies\Common\Common\Common.csproj", "{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Assemblies\Common\Project\Common.csproj", "{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UnitTests", "Assemblies\Common\UnitTests\Common.UnitTests.csproj", "{6CC264B4-5F01-405E-8F4B-90207BB1C228}"
 EndProject
