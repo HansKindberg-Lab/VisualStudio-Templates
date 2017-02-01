@@ -63,8 +63,6 @@
   <ItemGroup>
     <Compile Include="InversionOfControl\StaticServiceLocator.cs" />
     <Compile Include="Wizards\DefaultWizardControllerFactory.cs" />
-    <Compile Include="Wizards\IWizardController.cs" />
-    <Compile Include="Wizards\IWizardControllerFactory.cs" />
     <Compile Include="Wizards\Wizard.cs" />
     <Compile Include="Wizards\WizardController.cs" />
     <Compile Include="Wizards\WizardControllerFactory.cs" />

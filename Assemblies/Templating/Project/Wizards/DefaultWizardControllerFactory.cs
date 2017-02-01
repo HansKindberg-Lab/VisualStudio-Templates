@@ -12,14 +12,7 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 
 		public virtual IWizardController Create(object automationInstance, IDictionary<string, string> replacements, WizardRunKind runKind, object[] parameters)
 		{
-			var dte = (DTE) automationInstance;
-
-			var solution = dte.Solution;
-
-			if(solution == null)
-				throw new InvalidOperationException();
-
-			return new WizardController();
+			return new WizardController(DteWrapper.FromDte((DTE) automationInstance), parameters, replacements, runKind);
 		}
 
 		#endregion
