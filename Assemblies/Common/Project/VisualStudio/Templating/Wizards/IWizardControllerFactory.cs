@@ -9,7 +9,7 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 	{
 		#region Methods
 
-		IWizardController Create(object automationInstance, IDictionary<string, string> replacements, WizardRunKind runKind, object[] parameters);
+		IWizardController Create(object automationInstance, IEnumerable<object> parameters, IDictionary<string, string> replacements, WizardRunKind runKind, IWizard wizard, Type wizardControllerType);
 
 		#endregion
 	}

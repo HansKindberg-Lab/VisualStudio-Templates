@@ -13,17 +13,7 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 		IEnumerable<object> Parameters { get; }
 		IDictionary<string, string> Replacements { get; }
 		WizardRunKind RunKind { get; }
-
-		#endregion
-
-		#region Methods
-
-		void BeforeOpeningFile(IProjectItem projectItem);
-		void ProjectFinishedGenerating(IProject project);
-		void ProjectItemFinishedGenerating(IProjectItem projectItem);
-		void RunFinished();
-		void RunStarted();
-		bool ShouldAddProjectItem(string filePath);
+		IWizard Wizard { get; }
 
 		#endregion
 	}

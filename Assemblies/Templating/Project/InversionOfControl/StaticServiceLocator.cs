@@ -10,7 +10,7 @@ namespace HansKindberg.VisualStudio.Templating.InversionOfControl
 	{
 		#region Properties
 
-		protected internal virtual IWizardControllerFactory WizardControllerFactory { get; } = new DefaultWizardControllerFactory();
+		protected internal virtual IWizardControllerFactory WizardControllerFactory { get; } = new WizardControllerFactory();
 
 		#endregion
 

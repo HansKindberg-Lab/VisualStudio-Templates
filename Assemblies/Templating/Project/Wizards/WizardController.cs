@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TemplateWizard;
 
 namespace HansKindberg.VisualStudio.Templating.Wizards
 {
@@ -9,41 +8,37 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 	{
 		#region Constructors
 
-		public WizardController(IDevelopmentToolsEnvironment developmentToolsEnvironment, IEnumerable<object> parameters, IDictionary<string, string> replacements, WizardRunKind runKind) : base(developmentToolsEnvironment, parameters, replacements, runKind) {}
+		public WizardController(IDevelopmentToolsEnvironment developmentToolsEnvironment, IEnumerable<object> parameters, IDictionary<string, string> replacements, Microsoft.VisualStudio.TemplateWizard.WizardRunKind runKind, IWizard wizard) : base(developmentToolsEnvironment, parameters, replacements, runKind, wizard)
+		{
+			if(wizard == null)
+				throw new ArgumentNullException(nameof(wizard));
+
+			wizard.Finished += this.OnFinished;
+			wizard.Finishing += this.OnFinishing;
+			wizard.ProjectGenerationFinished += this.OnProjectGenerationFinished;
+			wizard.ProjectGenerationFinishing += this.OnProjectGenerationFinishing;
+			wizard.Started += this.OnStarted;
+			wizard.Starting += this.OnStarting;
+		}
 
 		#endregion
 
 		#region Methods
 
-		public override void BeforeOpeningFile(IProjectItem projectItem)
+		protected internal virtual void OnFinished(object sender, EventArgs e) {}
+		protected internal virtual void OnFinishing(object sender, WizardEventArgs e) {}
+
+		protected internal virtual void OnProjectGenerationFinished(object sender, ProjectEventArgs e)
 		{
 			
 		}
 
-		public override void ProjectFinishedGenerating(IProject project)
+		protected internal virtual void OnProjectGenerationFinishing(object sender, ProjectResultEventArgs e)
 		{
 			
 		}
-
-		public override void ProjectItemFinishedGenerating(IProjectItem projectItem)
-		{
-			
-		}
-
-		public override void RunFinished()
-		{
-			
-		}
-
-		public override void RunStarted()
-		{
-			
-		}
-
-		public override bool ShouldAddProjectItem(string filePath)
-		{
-			return true;
-		}
+		protected internal virtual void OnStarted(object sender, EventArgs e) {}
+		protected internal virtual void OnStarting(object sender, WizardEventArgs e) {}
 
 		#endregion
 	}

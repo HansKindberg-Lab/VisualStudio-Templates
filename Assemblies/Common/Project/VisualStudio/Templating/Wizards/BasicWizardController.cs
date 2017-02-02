@@ -9,7 +9,7 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 	{
 		#region Constructors
 
-		protected BasicWizardController(IDevelopmentToolsEnvironment developmentToolsEnvironment, IEnumerable<object> parameters, IDictionary<string, string> replacements, WizardRunKind runKind)
+		protected BasicWizardController(IDevelopmentToolsEnvironment developmentToolsEnvironment, IEnumerable<object> parameters, IDictionary<string, string> replacements, WizardRunKind runKind, IWizard wizard)
 		{
 			if(developmentToolsEnvironment == null)
 				throw new ArgumentNullException(nameof(developmentToolsEnvironment));
@@ -20,10 +20,14 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 			if(replacements == null)
 				throw new ArgumentNullException(nameof(replacements));
 
+			if(wizard == null)
+				throw new ArgumentNullException(nameof(wizard));
+
 			this.DevelopmentToolsEnvironment = developmentToolsEnvironment;
 			this.Parameters = parameters;
 			this.Replacements = replacements;
 			this.RunKind = runKind;
+			this.Wizard = wizard;
 		}
 
 		#endregion
@@ -34,17 +38,7 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 		public virtual IEnumerable<object> Parameters { get; }
 		public virtual IDictionary<string, string> Replacements { get; }
 		public virtual WizardRunKind RunKind { get; }
-
-		#endregion
-
-		#region Methods
-
-		public abstract void BeforeOpeningFile(IProjectItem projectItem);
-		public abstract void ProjectFinishedGenerating(IProject project);
-		public abstract void ProjectItemFinishedGenerating(IProjectItem projectItem);
-		public abstract void RunFinished();
-		public abstract void RunStarted();
-		public abstract bool ShouldAddProjectItem(string filePath);
+		public virtual IWizard Wizard { get; }
 
 		#endregion
 	}

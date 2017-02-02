@@ -1,52 +1,32 @@
 using System;
-using HansKindberg.InversionOfControl;
-using HansKindberg.VisualStudio.Templating.InversionOfControl;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TemplateWizard;
 
 namespace HansKindberg.VisualStudio.Templating.Wizards
 {
 	[CLSCompliant(false)]
-	public static class WizardControllerFactory
+	public class WizardControllerFactory : BasicWizardControllerFactory
 	{
-		#region Fields
+		#region Methods
 
-		private static volatile IWizardControllerFactory _instance;
-		private static readonly object _lockObject = new object();
-
-		#endregion
-
-		#region Properties
-
-		public static IWizardControllerFactory Instance
+		public override IWizardController Create(IDevelopmentToolsEnvironment developmentToolsEnvironment, IEnumerable<object> parameters, IDictionary<string, string> replacements, WizardRunKind runKind, IWizard wizard, Type wizardControllerType)
 		{
-			get
-			{
-				// ReSharper disable InvertIf
-				if(_instance == null)
-				{
-					lock(_lockObject)
-					{
-						if(_instance == null)
-						{
-							ServiceLocator.Instance = new StaticServiceLocator();
+			if(developmentToolsEnvironment == null)
+				throw new ArgumentNullException(nameof(developmentToolsEnvironment));
 
-							_instance = ServiceLocator.Instance.GetService<IWizardControllerFactory>();
-						}
-					}
-				}
-				// ReSharper restore InvertIf
+			if(parameters == null)
+				throw new ArgumentNullException(nameof(parameters));
 
-				return _instance;
-			}
-			set
-			{
-				if(value == _instance)
-					return;
+			if(replacements == null)
+				throw new ArgumentNullException(nameof(replacements));
 
-				lock(_lockObject)
-				{
-					_instance = value;
-				}
-			}
+			if(wizard == null)
+				throw new ArgumentNullException(nameof(wizard));
+
+			if(wizardControllerType == null)
+				throw new ArgumentNullException(nameof(wizardControllerType));
+
+			return (IWizardController) Activator.CreateInstance(wizardControllerType, developmentToolsEnvironment, parameters, replacements, runKind, wizard);
 		}
 
 		#endregion
