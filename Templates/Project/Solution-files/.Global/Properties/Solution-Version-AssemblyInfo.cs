@@ -10,7 +10,7 @@ internal static class SolutionVersionInfo
 {
 	#region Fields
 
-	internal const string AssemblyVersion = "1.0.0";
+	internal const string AssemblyVersion = "0.0.1";
 
 	#endregion
 }

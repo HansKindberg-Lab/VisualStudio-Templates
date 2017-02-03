@@ -55,46 +55,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{159F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution-Level-Packages", ".Global\NuGet\Solution-Level-Packages.csproj", "{495F7393-3EDA-4AED-9951-4817312E5554}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution-files", "Solution-files", "{ED5BD594-C5DB-4417-96EF-CC8053AD7C78}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Solution-files\.gitignore = Templates\Solution-files\.gitignore
-		Templates\Solution-files\NuGet.config = Templates\Solution-files\NuGet.config
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{8D213AD0-A9AA-47BC-8010-C5CE7424A46D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{145774F8-F9E7-4C71-B974-FE2A37237946}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Solution-files\.Global\Build\Build.props = Templates\Solution-files\.Global\Build\Build.props
-		Templates\Solution-files\.Global\Build\Build.targets = Templates\Solution-files\.Global\Build\Build.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{34EA0E95-F181-4012-B7EA-C0F76EE65F16}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Solution-files\.Global\CodeAnalysis\Solution.ruleset = Templates\Solution-files\.Global\CodeAnalysis\Solution.ruleset
-		Templates\Solution-files\.Global\CodeAnalysis\Solution.Tests.ruleset = Templates\Solution-files\.Global\CodeAnalysis\Solution.Tests.ruleset
-		Templates\Solution-files\.Global\CodeAnalysis\SolutionDictionary.xml = Templates\Solution-files\.Global\CodeAnalysis\SolutionDictionary.xml
-		Templates\Solution-files\.Global\CodeAnalysis\SolutionSuppressions.cs = Templates\Solution-files\.Global\CodeAnalysis\SolutionSuppressions.cs
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{2D5C86C1-7EB8-4564-8F5E-34165ACC6ABF}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Solution-files\.Global\NuGet\packages.config = Templates\Solution-files\.Global\NuGet\packages.config
-		Templates\Solution-files\.Global\NuGet\Solution-Level-Packages.csproj = Templates\Solution-files\.Global\NuGet\Solution-Level-Packages.csproj
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{01EEFF7C-8B85-4572-8FC3-E1883B7D12F6}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Solution-files\.Global\Properties\Solution-Basic-AssemblyInfo.cs = Templates\Solution-files\.Global\Properties\Solution-Basic-AssemblyInfo.cs
-		Templates\Solution-files\.Global\Properties\Solution-Version-AssemblyInfo.cs = Templates\Solution-files\.Global\Properties\Solution-Version-AssemblyInfo.cs
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{56E80641-69BF-4848-BA34-5150B02E8304}"
-	ProjectSection(SolutionItems) = preProject
-		Templates\Solution-files\.Global\Signing\ReadMe.txt = Templates\Solution-files\.Global\Signing\ReadMe.txt
-		Templates\Solution-files\.Global\Signing\StrongName.Development.snk = Templates\Solution-files\.Global\Signing\StrongName.Development.snk
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Package", "Package\Package.csproj", "{1A0A592C-76A9-42FA-A436-DED53B1AD7B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{076C33DB-7650-4DC2-A6D5-70E9D4E6F710}"
@@ -106,6 +66,48 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.IntegrationTests", "Assemblies\Common\IntegrationTests\Common.IntegrationTests.csproj", "{DDBCB877-05EF-4C71-A695-048F8EB36563}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Templates\Test\Test.csproj", "{41DD85DD-D201-443D-85F4-C2E93F633D60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{5848E2DE-67C5-498E-AD2A-24134B61007B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution-files", "Solution-files", "{552AB37E-3514-4DEA-AA94-5856D03DB393}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Project\Solution-files\.gitignore = Templates\Project\Solution-files\.gitignore
+		Templates\Project\Solution-files\NuGet.config = Templates\Project\Solution-files\NuGet.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{C93ADA3A-A887-42FF-8095-57B48B47505A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{9ABD8EEB-6AB2-4FC8-8BF1-372440284FF3}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Project\Solution-files\.Global\Build\Build.props = Templates\Project\Solution-files\.Global\Build\Build.props
+		Templates\Project\Solution-files\.Global\Build\Build.targets = Templates\Project\Solution-files\.Global\Build\Build.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{23CECB06-24AB-4AB6-97C4-1A2A3AF58AB9}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Project\Solution-files\.Global\CodeAnalysis\Solution.ruleset = Templates\Project\Solution-files\.Global\CodeAnalysis\Solution.ruleset
+		Templates\Project\Solution-files\.Global\CodeAnalysis\Solution.Tests.ruleset = Templates\Project\Solution-files\.Global\CodeAnalysis\Solution.Tests.ruleset
+		Templates\Project\Solution-files\.Global\CodeAnalysis\SolutionDictionary.xml = Templates\Project\Solution-files\.Global\CodeAnalysis\SolutionDictionary.xml
+		Templates\Project\Solution-files\.Global\CodeAnalysis\SolutionSuppressions.cs = Templates\Project\Solution-files\.Global\CodeAnalysis\SolutionSuppressions.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{2CAB5327-6614-4123-9497-DD8994B89AAF}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Project\Solution-files\.Global\NuGet\packages.config = Templates\Project\Solution-files\.Global\NuGet\packages.config
+		Templates\Project\Solution-files\.Global\NuGet\Solution-Level-Packages.csproj = Templates\Project\Solution-files\.Global\NuGet\Solution-Level-Packages.csproj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{9E266CAF-10CD-4748-A340-7888D745BA29}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Project\Solution-files\.Global\Properties\Solution-Basic-AssemblyInfo.cs = Templates\Project\Solution-files\.Global\Properties\Solution-Basic-AssemblyInfo.cs
+		Templates\Project\Solution-files\.Global\Properties\Solution-Version-AssemblyInfo.cs = Templates\Project\Solution-files\.Global\Properties\Solution-Version-AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{D5BF92D9-B913-4254-8963-D0E43641E0EE}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\Project\Solution-files\.Global\Signing\ReadMe.txt = Templates\Project\Solution-files\.Global\Signing\ReadMe.txt
+		Templates\Project\Solution-files\.Global\Signing\StrongName.Development.snk = Templates\Project\Solution-files\.Global\Signing\StrongName.Development.snk
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,17 +167,18 @@ Global
 		{E2DD4B9C-93C0-47CD-83D0-CA9B01B8389D} = {45C61118-1EC6-4748-9E79-2A44FC21AE7B}
 		{159F33E7-10EF-4EEB-9BB9-AD91965C89B3} = {45C61118-1EC6-4748-9E79-2A44FC21AE7B}
 		{495F7393-3EDA-4AED-9951-4817312E5554} = {6F267AD9-891D-4D7F-84BE-30C53D414AE5}
-		{ED5BD594-C5DB-4417-96EF-CC8053AD7C78} = {AFAF90F3-0E8E-40FC-A30B-886D9542FF44}
-		{8D213AD0-A9AA-47BC-8010-C5CE7424A46D} = {ED5BD594-C5DB-4417-96EF-CC8053AD7C78}
-		{145774F8-F9E7-4C71-B974-FE2A37237946} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
-		{34EA0E95-F181-4012-B7EA-C0F76EE65F16} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
-		{2D5C86C1-7EB8-4564-8F5E-34165ACC6ABF} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
-		{01EEFF7C-8B85-4572-8FC3-E1883B7D12F6} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
-		{56E80641-69BF-4848-BA34-5150B02E8304} = {8D213AD0-A9AA-47BC-8010-C5CE7424A46D}
 		{076C33DB-7650-4DC2-A6D5-70E9D4E6F710} = {0284A0B2-019E-4707-AC81-C7EF6740694F}
 		{DAAEBBD8-05D6-4B45-B2A9-2FDF4FCEC2D2} = {076C33DB-7650-4DC2-A6D5-70E9D4E6F710}
 		{6CC264B4-5F01-405E-8F4B-90207BB1C228} = {076C33DB-7650-4DC2-A6D5-70E9D4E6F710}
 		{DDBCB877-05EF-4C71-A695-048F8EB36563} = {076C33DB-7650-4DC2-A6D5-70E9D4E6F710}
 		{41DD85DD-D201-443D-85F4-C2E93F633D60} = {AFAF90F3-0E8E-40FC-A30B-886D9542FF44}
+		{5848E2DE-67C5-498E-AD2A-24134B61007B} = {AFAF90F3-0E8E-40FC-A30B-886D9542FF44}
+		{552AB37E-3514-4DEA-AA94-5856D03DB393} = {5848E2DE-67C5-498E-AD2A-24134B61007B}
+		{C93ADA3A-A887-42FF-8095-57B48B47505A} = {552AB37E-3514-4DEA-AA94-5856D03DB393}
+		{9ABD8EEB-6AB2-4FC8-8BF1-372440284FF3} = {C93ADA3A-A887-42FF-8095-57B48B47505A}
+		{23CECB06-24AB-4AB6-97C4-1A2A3AF58AB9} = {C93ADA3A-A887-42FF-8095-57B48B47505A}
+		{2CAB5327-6614-4123-9497-DD8994B89AAF} = {C93ADA3A-A887-42FF-8095-57B48B47505A}
+		{9E266CAF-10CD-4748-A340-7888D745BA29} = {C93ADA3A-A887-42FF-8095-57B48B47505A}
+		{D5BF92D9-B913-4254-8963-D0E43641E0EE} = {C93ADA3A-A887-42FF-8095-57B48B47505A}
 	EndGlobalSection
 EndGlobal
