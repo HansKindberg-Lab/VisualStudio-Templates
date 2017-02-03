@@ -78,6 +78,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="NuGet.config" />
     <None Include="Test.ico" />
   </ItemGroup>
   <ItemGroup>

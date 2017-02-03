@@ -5,8 +5,8 @@
   <PropertyGroup>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>HansKindberg.VisualStudio.Templating</AssemblyName>
-    <AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.snk</AssemblyOriginatorKeyFile>
-    <CodeAnalysisRuleSet>$(SolutionDir).Global\CodeAnalysis\Solution.ruleset</CodeAnalysisRuleSet>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)$(GlobalSigningDirectoryRelativePath)StrongName.snk</AssemblyOriginatorKeyFile>
+    <CodeAnalysisRuleSet>$(SolutionDir)$(GlobalCodeAnalysisDirectoryRelativePath)Solution.ruleset</CodeAnalysisRuleSet>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <FileAlignment>512</FileAlignment>
     <OutputType>Library</OutputType>
@@ -51,6 +51,14 @@
       <HintPath>..\..\..\packages\VSSDK.DTE.7.0.4\lib\net20\stdole.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="StructureMap, Version=3.1.9.463, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\structuremap-signed.3.1.9.463\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.9.463, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\structuremap-signed.3.1.9.463\lib\net40\StructureMap.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -61,7 +69,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InversionOfControl\StaticServiceLocator.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Wizards\Wizard.cs" />
     <Compile Include="Wizards\WizardController.cs" />
     <Compile Include="Wizards\WizardControllerFactory.cs" />
@@ -69,17 +77,17 @@
     <None Include="Build\Build.targets" />
     <CodeAnalysisDictionary Include="CodeAnalysis\AssemblyDictionary.xml" />
     <Compile Include="CodeAnalysis\AssemblySuppressions.cs" />
-    <CodeAnalysisDictionary Include="$(SolutionDir).Global\CodeAnalysis\SolutionDictionary.xml">
+    <CodeAnalysisDictionary Include="$(SolutionDir)$(GlobalCodeAnalysisDirectoryRelativePath)SolutionDictionary.xml">
       <Link>CodeAnalysis\SolutionDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Compile Include="$(SolutionDir).Global\CodeAnalysis\SolutionSuppressions.cs">
+    <Compile Include="$(SolutionDir)$(GlobalCodeAnalysisDirectoryRelativePath)SolutionSuppressions.cs">
       <Link>CodeAnalysis\SolutionSuppressions.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir).Global\Properties\Solution-Basic-AssemblyInfo.cs">
+    <Compile Include="$(SolutionDir)$(GlobalPropertiesDirectoryRelativePath)Solution-Basic-AssemblyInfo.cs">
       <Link>Properties\Solution-Basic-AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="$(SolutionDir).Global\Properties\Solution-Version-AssemblyInfo.cs">
+    <Compile Include="$(SolutionDir)$(GlobalPropertiesDirectoryRelativePath)Solution-Version-AssemblyInfo.cs">
       <Link>Properties\Solution-Version-AssemblyInfo.cs</Link>
     </Compile>
     <None Include="packages.config" />

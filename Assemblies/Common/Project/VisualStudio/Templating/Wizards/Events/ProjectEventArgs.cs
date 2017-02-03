@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HansKindberg.VisualStudio.Templating.Wizards
+namespace HansKindberg.VisualStudio.Templating.Wizards.Events
 {
 	public class ProjectEventArgs : EventArgs
 	{

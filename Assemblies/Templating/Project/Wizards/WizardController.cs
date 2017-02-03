@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using HansKindberg.VisualStudio.Templating.Wizards.Events;
 
 namespace HansKindberg.VisualStudio.Templating.Wizards
 {
@@ -13,32 +14,24 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 			if(wizard == null)
 				throw new ArgumentNullException(nameof(wizard));
 
+			wizard.AddingProjectItem += this.OnAddingProjectItem;
 			wizard.Finished += this.OnFinished;
-			wizard.Finishing += this.OnFinishing;
+			wizard.OpeningFile += this.OnOpeningFile;
 			wizard.ProjectGenerationFinished += this.OnProjectGenerationFinished;
-			wizard.ProjectGenerationFinishing += this.OnProjectGenerationFinishing;
+			wizard.ProjectItemGenerationFinished += this.OnProjectItemGenerationFinished;
 			wizard.Started += this.OnStarted;
-			wizard.Starting += this.OnStarting;
 		}
 
 		#endregion
 
 		#region Methods
 
+		protected internal virtual void OnAddingProjectItem(object sender, FilePathEventArgs e) {}
 		protected internal virtual void OnFinished(object sender, EventArgs e) {}
-		protected internal virtual void OnFinishing(object sender, WizardEventArgs e) {}
-
-		protected internal virtual void OnProjectGenerationFinished(object sender, ProjectEventArgs e)
-		{
-			
-		}
-
-		protected internal virtual void OnProjectGenerationFinishing(object sender, ProjectResultEventArgs e)
-		{
-			
-		}
+		protected internal virtual void OnOpeningFile(object sender, ProjectItemEventArgs e) {}
+		protected internal virtual void OnProjectGenerationFinished(object sender, ProjectEventArgs e) {}
+		protected internal virtual void OnProjectItemGenerationFinished(object sender, ProjectItemEventArgs e) {}
 		protected internal virtual void OnStarted(object sender, EventArgs e) {}
-		protected internal virtual void OnStarting(object sender, WizardEventArgs e) {}
 
 		#endregion
 	}

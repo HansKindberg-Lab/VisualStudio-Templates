@@ -1,4 +1,5 @@
 ﻿using System;
+using HansKindberg.VisualStudio.Templating.Wizards.Events;
 
 namespace HansKindberg.VisualStudio.Templating.Wizards
 {
@@ -6,12 +7,12 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 	{
 		#region Events
 
+		event EventHandler<FilePathEventArgs> AddingProjectItem;
 		event EventHandler<EventArgs> Finished;
-		event EventHandler<WizardEventArgs> Finishing;
+		event EventHandler<ProjectItemEventArgs> OpeningFile;
 		event EventHandler<ProjectEventArgs> ProjectGenerationFinished;
-		event EventHandler<ProjectResultEventArgs> ProjectGenerationFinishing;
+		event EventHandler<ProjectItemEventArgs> ProjectItemGenerationFinished;
 		event EventHandler<EventArgs> Started;
-		event EventHandler<WizardEventArgs> Starting;
 
 		#endregion
 	}

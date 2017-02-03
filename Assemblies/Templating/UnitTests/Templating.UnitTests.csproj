@@ -1,106 +1,108 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>HansKindberg.VisualStudio.Templating.UnitTests</AssemblyName>
-    <AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
-    <CodeAnalysisRuleSet>$(SolutionDir).Global\CodeAnalysis\Solution.Tests.ruleset</CodeAnalysisRuleSet>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <FileAlignment>512</FileAlignment>
-    <IsCodedUITest>False</IsCodedUITest>
-    <OutputType>Library</OutputType>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4B7B51D7-8E5E-4F41-B15F-567EC165A327}</ProjectGuid>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-    <RootNamespace>HansKindberg.VisualStudio.Templating.UnitTests</RootNamespace>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <SignAssembly>true</SignAssembly>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TestProjectType>UnitTest</TestProjectType>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <ProjectReference Include="..\Project\Templating.csproj">
-      <Project>{706646b2-f6bc-4a97-8d8a-ccd6d325000d}</Project>
-      <Name>Templating</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Choose>
-    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
-  <Choose>
-    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <ItemGroup>
-    <CodeAnalysisDictionary Include="CodeAnalysis\AssemblyDictionary.xml" />
-    <Compile Include="CodeAnalysis\AssemblySuppressions.cs" />
-    <CodeAnalysisDictionary Include="$(SolutionDir).Global\CodeAnalysis\SolutionDictionary.xml">
-      <Link>CodeAnalysis\SolutionDictionary.xml</Link>
-    </CodeAnalysisDictionary>
-    <Compile Include="$(SolutionDir).Global\CodeAnalysis\SolutionSuppressions.cs">
-      <Link>CodeAnalysis\SolutionSuppressions.cs</Link>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir).Global\Properties\Solution-Basic-AssemblyInfo.cs">
-      <Link>Properties\Solution-Basic-AssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="$(SolutionDir).Global\Properties\Solution-Version-AssemblyInfo.cs">
-      <Link>Properties\Solution-Version-AssemblyInfo.cs</Link>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<Import Condition="Exists('Build\Build.props')" Project="Build\Build.props" />
+	<PropertyGroup>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<AssemblyName>HansKindberg.VisualStudio.Templating.UnitTests</AssemblyName>
+		<AssemblyOriginatorKeyFile>$(SolutionDir)$(GlobalSigningDirectoryRelativePath)StrongName.Development.snk</AssemblyOriginatorKeyFile>
+		<CodeAnalysisRuleSet>$(SolutionDir)$(GlobalCodeAnalysisDirectoryRelativePath)Solution.Tests.ruleset</CodeAnalysisRuleSet>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<FileAlignment>512</FileAlignment>
+		<IsCodedUITest>False</IsCodedUITest>
+		<OutputType>Library</OutputType>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{4B7B51D7-8E5E-4F41-B15F-567EC165A327}</ProjectGuid>
+		<ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+		<RootNamespace>HansKindberg.VisualStudio.Templating.UnitTests</RootNamespace>
+		<RunCodeAnalysis>true</RunCodeAnalysis>
+		<SignAssembly>true</SignAssembly>
+		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+		<TestProjectType>UnitTest</TestProjectType>
+		<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+		<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+		<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+		<TargetFrameworkProfile />
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+			<HintPath>..\..\..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="System" />
+		<ProjectReference Include="..\Project\Templating.csproj">
+			<Project>{706646b2-f6bc-4a97-8d8a-ccd6d325000d}</Project>
+			<Name>Templating</Name>
+		</ProjectReference>
+	</ItemGroup>
+	<Choose>
+		<When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+			<ItemGroup>
+				<Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+			</ItemGroup>
+		</When>
+		<Otherwise>
+			<ItemGroup>
+				<Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+	<Choose>
+		<When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+			<ItemGroup>
+				<Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+					<Private>False</Private>
+				</Reference>
+				<Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+					<Private>False</Private>
+				</Reference>
+			</ItemGroup>
+		</When>
+	</Choose>
+	<ItemGroup>
+		<None Include="Build\Build.props" />
+		<None Include="Build\Build.targets" />
+		<CodeAnalysisDictionary Include="CodeAnalysis\AssemblyDictionary.xml" />
+		<Compile Include="CodeAnalysis\AssemblySuppressions.cs" />
+		<CodeAnalysisDictionary Include="$(SolutionDir)$(GlobalCodeAnalysisDirectoryRelativePath)SolutionDictionary.xml">
+			<Link>CodeAnalysis\SolutionDictionary.xml</Link>
+		</CodeAnalysisDictionary>
+		<Compile Include="$(SolutionDir)$(GlobalCodeAnalysisDirectoryRelativePath)SolutionSuppressions.cs">
+			<Link>CodeAnalysis\SolutionSuppressions.cs</Link>
+		</Compile>
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="$(SolutionDir)$(GlobalPropertiesDirectoryRelativePath)Solution-Basic-AssemblyInfo.cs">
+			<Link>Properties\Solution-Basic-AssemblyInfo.cs</Link>
+		</Compile>
+		<Compile Include="$(SolutionDir)$(GlobalPropertiesDirectoryRelativePath)Solution-Version-AssemblyInfo.cs">
+			<Link>Properties\Solution-Version-AssemblyInfo.cs</Link>
+		</Compile>
+		<None Include="packages.config" />
+	</ItemGroup>
+	<Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<Import Condition="Exists('Build\Build.targets')" Project="Build\Build.targets" />
 </Project>

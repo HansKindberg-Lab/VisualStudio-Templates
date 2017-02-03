@@ -37,7 +37,7 @@
 			<MissingAssemblyOriginatorKeyFile>$(AssemblyOriginatorKeyFile)</MissingAssemblyOriginatorKeyFile>
 		</PropertyGroup>
 		<PropertyGroup>
-			<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\$(DevelopmentStrongNameKeyFileName)</AssemblyOriginatorKeyFile>
+			<AssemblyOriginatorKeyFile>$(SolutionDir)$(GlobalSigningDirectoryRelativePath)$(DevelopmentStrongNameKeyFileName)</AssemblyOriginatorKeyFile>
 		</PropertyGroup>
 		<Warning
 			Text="The strong-name-key-file '$(MissingAssemblyOriginatorKeyFile)' does not exist. The strong-name-key-file '$(AssemblyOriginatorKeyFile)' is used instead."

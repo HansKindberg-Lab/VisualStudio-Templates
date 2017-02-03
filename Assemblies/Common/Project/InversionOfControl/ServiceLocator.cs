@@ -5,7 +5,7 @@ namespace HansKindberg.InversionOfControl
 		#region Fields
 
 		private static volatile IServiceLocator _instance;
-		private static readonly object _lockObject = new object();
+		private static readonly object _instanceLock = new object();
 
 		#endregion
 
@@ -18,7 +18,7 @@ namespace HansKindberg.InversionOfControl
 				// ReSharper disable InvertIf
 				if(_instance == null)
 				{
-					lock(_lockObject)
+					lock(_instanceLock)
 					{
 						if(_instance == null)
 							_instance = new DefaultServiceLocator();
@@ -33,7 +33,7 @@ namespace HansKindberg.InversionOfControl
 				if(value == _instance)
 					return;
 
-				lock(_lockObject)
+				lock(_instanceLock)
 				{
 					_instance = value;
 				}

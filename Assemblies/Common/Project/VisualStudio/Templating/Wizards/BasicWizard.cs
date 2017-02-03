@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using EnvDTE;
+using HansKindberg.VisualStudio.Templating.Wizards.Events;
 using Microsoft.VisualStudio.TemplateWizard;
 
 namespace HansKindberg.VisualStudio.Templating.Wizards
@@ -22,12 +23,12 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 
 		#region Events
 
+		public event EventHandler<FilePathEventArgs> AddingProjectItem;
 		public event EventHandler<EventArgs> Finished;
-		public event EventHandler<WizardEventArgs> Finishing;
+		public event EventHandler<ProjectItemEventArgs> OpeningFile;
 		public event EventHandler<ProjectEventArgs> ProjectGenerationFinished;
-		public event EventHandler<ProjectResultEventArgs> ProjectGenerationFinishing;
+		public event EventHandler<ProjectItemEventArgs> ProjectItemGenerationFinished;
 		public event EventHandler<EventArgs> Started;
-		public event EventHandler<WizardEventArgs> Starting;
 
 		#endregion
 
@@ -41,7 +42,12 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 
 		public virtual void BeforeOpeningFile(ProjectItem projectItem)
 		{
-			//this.WizardController.BeforeOpeningFile(ProjectItemWrapper.FromProjectItem(projectItem));
+			this.OnOpeningFile(new ProjectItemEventArgs(ProjectItemWrapper.FromProjectItem(projectItem)));
+		}
+
+		protected internal virtual void OnAddingProjectItem(FilePathEventArgs e)
+		{
+			this.AddingProjectItem?.Invoke(this, e);
 		}
 
 		protected internal virtual void OnFinished(EventArgs e)
@@ -49,9 +55,9 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 			this.Finished?.Invoke(this, e);
 		}
 
-		protected internal virtual void OnFinishing(WizardEventArgs e)
+		protected internal virtual void OnOpeningFile(ProjectItemEventArgs e)
 		{
-			this.Finishing?.Invoke(this, e);
+			this.OpeningFile?.Invoke(this, e);
 		}
 
 		protected internal virtual void OnProjectGenerationFinished(ProjectEventArgs e)
@@ -59,9 +65,9 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 			this.ProjectGenerationFinished?.Invoke(this, e);
 		}
 
-		protected internal virtual void OnProjectGenerationFinishing(ProjectResultEventArgs e)
+		protected internal virtual void OnProjectItemGenerationFinished(ProjectItemEventArgs e)
 		{
-			this.ProjectGenerationFinishing?.Invoke(this, e);
+			this.ProjectItemGenerationFinished?.Invoke(this, e);
 		}
 
 		protected internal virtual void OnStarted(EventArgs e)
@@ -69,43 +75,18 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 			this.Started?.Invoke(this, e);
 		}
 
-		protected internal virtual void OnStarting(WizardEventArgs e)
-		{
-			this.Starting?.Invoke(this, e);
-		}
-
 		public virtual void ProjectFinishedGenerating(Project project)
 		{
-			var projectResultEventArguments = new ProjectResultEventArgs(ProjectWrapper.FromProject(project));
-
-			this.OnProjectGenerationFinishing(projectResultEventArguments);
-
-			if(projectResultEventArguments.Result == WizardEventResultType.BackOut)
-				throw new WizardBackoutException(projectResultEventArguments.Message);
-
-			if(projectResultEventArguments.Result == WizardEventResultType.Cancel)
-				throw new WizardCancelledException(projectResultEventArguments.Message);
-
-			this.OnProjectGenerationFinished(new ProjectEventArgs(projectResultEventArguments.Project));
+			this.OnProjectGenerationFinished(new ProjectEventArgs(ProjectWrapper.FromProject(project)));
 		}
 
 		public virtual void ProjectItemFinishedGenerating(ProjectItem projectItem)
 		{
-			//this.WizardController.ProjectItemFinishedGenerating(ProjectItemWrapper.FromProjectItem(projectItem));
+			this.OnProjectItemGenerationFinished(new ProjectItemEventArgs(ProjectItemWrapper.FromProjectItem(projectItem)));
 		}
 
 		public virtual void RunFinished()
 		{
-			var wizardEventArguments = new WizardEventArgs();
-
-			this.OnFinishing(wizardEventArguments);
-
-			if(wizardEventArguments.Result == WizardEventResultType.BackOut)
-				throw new WizardBackoutException(wizardEventArguments.Message);
-
-			if(wizardEventArguments.Result == WizardEventResultType.Cancel)
-				throw new WizardCancelledException(wizardEventArguments.Message);
-
 			this.OnFinished(EventArgs.Empty);
 		}
 
@@ -113,23 +94,16 @@ namespace HansKindberg.VisualStudio.Templating.Wizards
 		{
 			this.WizardHost.Register(automationObject, customParams, replacementsDictionary, runKind, this);
 
-			var wizardEventArguments = new WizardEventArgs();
-
-			this.OnStarting(wizardEventArguments);
-
-			if(wizardEventArguments.Result == WizardEventResultType.BackOut)
-				throw new WizardBackoutException(wizardEventArguments.Message);
-
-			if(wizardEventArguments.Result == WizardEventResultType.Cancel)
-				throw new WizardCancelledException(wizardEventArguments.Message);
-
 			this.OnStarted(EventArgs.Empty);
 		}
 
 		public virtual bool ShouldAddProjectItem(string filePath)
 		{
-			return true;
-			//return this.WizardController.ShouldAddProjectItem(filePath);
+			var filePathEventArgs = new FilePathEventArgs(filePath);
+
+			this.OnAddingProjectItem(filePathEventArgs);
+
+			return !filePathEventArgs.Cancel;
 		}
 
 		#endregion

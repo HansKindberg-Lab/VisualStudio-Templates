@@ -56,12 +56,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution-Level-Packages", ".Global\NuGet\Solution-Level-Packages.csproj", "{495F7393-3EDA-4AED-9951-4817312E5554}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution-files", "Solution-files", "{ED5BD594-C5DB-4417-96EF-CC8053AD7C78}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{8D213AD0-A9AA-47BC-8010-C5CE7424A46D}"
 	ProjectSection(SolutionItems) = preProject
 		Templates\Solution-files\.gitignore = Templates\Solution-files\.gitignore
 		Templates\Solution-files\NuGet.config = Templates\Solution-files\NuGet.config
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{8D213AD0-A9AA-47BC-8010-C5CE7424A46D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{145774F8-F9E7-4C71-B974-FE2A37237946}"
 	ProjectSection(SolutionItems) = preProject
